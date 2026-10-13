@@ -1,0 +1,41 @@
+name: Validate skill
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate SKILL.md structure
+        run: |
+          python - <<'PY'
+          import pathlib, sys
+          skill = pathlib.Path('.')
+          md = skill / 'SKILL.md'
+          if not md.exists():
+              print('FAIL: SKILL.md missing'); sys.exit(1)
+          text = md.read_text(encoding='utf-8')
+          errors = []
+          for key in ('name:', 'description:'):
+              if key not in text:
+                  errors.append(f'missing frontmatter key: {key}')
+          if 'agent_created:' not in text:
+              errors.append('missing frontmatter key: agent_created')
+          if '## Workflow' not in text and '## workflow' not in text.lower():
+              errors.append('missing ## Workflow section')
+          if errors:
+              for e in errors:
+                  print('FAIL:', e)
+              sys.exit(1)
+          print(f'OK: {skill.name} validates ({len(text)} chars)')
+          PY
