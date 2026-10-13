@@ -1,0 +1,49 @@
+<svg width="100%" viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>topic-idea-generator 工作流</title>
+  <desc>输入四个参数，按五个维度发散，去重排序后输出选题表。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <text class="th" x="340" y="40" text-anchor="middle" fill="#185FA5" style="font-size:15px; font-weight:500">输入：4 个参数</text>
+
+  <g class="node c-blue">
+    <rect x="40" y="80" width="120" height="44" rx="8" stroke-width="0.5" fill="#E6F1FB" stroke="#185FA5"/>
+    <text class="t" x="100" y="102" text-anchor="middle" fill="#042C53" style="font-size:13px">账号定位</text>
+  </g>
+  <g class="node c-blue">
+    <rect x="180" y="80" width="120" height="44" rx="8" stroke-width="0.5" fill="#E6F1FB" stroke="#185FA5"/>
+    <text class="t" x="240" y="102" text-anchor="middle" fill="#042C53" style="font-size:13px">目标受众</text>
+  </g>
+  <g class="node c-blue">
+    <rect x="320" y="80" width="120" height="44" rx="8" stroke-width="0.5" fill="#E6F1FB" stroke="#185FA5"/>
+    <text class="t" x="380" y="102" text-anchor="middle" fill="#042C53" style="font-size:13px">主攻平台</text>
+  </g>
+  <g class="node c-blue">
+    <rect x="460" y="80" width="120" height="44" rx="8" stroke-width="0.5" fill="#E6F1FB" stroke="#185FA5"/>
+    <text class="t" x="520" y="102" text-anchor="middle" fill="#042C53" style="font-size:13px">数量</text>
+  </g>
+
+  <path class="arr" d="M100 130 L100 160 M240 130 L240 160 M380 130 L380 160 M520 130 L520 160 M100 160 L520 160 L520 180" fill="none" stroke="#888780" stroke-width="1.5"/>
+  <path class="arr" d="M310 200 L370 200" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g class="node c-purple">
+    <rect x="240" y="180" width="140" height="56" rx="8" stroke-width="0.5" fill="#EEEDFE" stroke="#534AB7"/>
+    <text class="th" x="310" y="200" text-anchor="middle" fill="#26215C" style="font-size:13px; font-weight:500">5 维发散</text>
+    <text class="ts" x="310" y="218" text-anchor="middle" fill="#3C3489" style="font-size:11px">痛点 · 好奇 · 反差 · 数字 · 身份</text>
+  </g>
+
+  <path class="arr" d="M450 208 L490 208" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g class="node c-teal">
+    <rect x="490" y="180" width="140" height="56" rx="8" stroke-width="0.5" fill="#E1F5EE" stroke="#0F6E56"/>
+    <text class="th" x="560" y="200" text-anchor="middle" fill="#04342C" style="font-size:13px; font-weight:500">去重 + 排序</text>
+    <text class="ts" x="560" y="218" text-anchor="middle" fill="#085041" style="font-size:11px">三维加权</text>
+  </g>
+
+  <path class="arr" d="M560 240 L560 270" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text class="th" x="340" y="290" text-anchor="middle" fill="#0F6E56" style="font-size:14px; font-weight:500">输出：选题表（标题 × 角度 × 三平台变体 × 爆款度）</text>
+</svg>
